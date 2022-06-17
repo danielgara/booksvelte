@@ -1,7 +1,11 @@
-<script>
-	import Products from './components/Products.svelte'
+<script>	
+	import Rating from './components/Rating.svelte';
 </script>
 
 <main>
-	<Products />
+	<Rating rating='1' />
+	<Rating rating='2' />
+	<Rating rating='3' />
+	<Rating rating='4' />
+	<Rating rating='5' />
 </main>
