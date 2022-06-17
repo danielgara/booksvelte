@@ -33,6 +33,10 @@
 </script>
 
 <h1>Products</h1>
-{#each products as product}	
-    <Product data={product} />    
-{/each}
+{#if products.length > 0}
+    {#each products as product}	
+        <Product data={product} />    
+    {/each}
+{:else}
+    No products to display
+{/if}
