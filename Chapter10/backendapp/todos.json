@@ -15,11 +15,11 @@
       "dateCompleted": false
     },
     {
-      "id": "984d2b15-2590-4a5e-9383-632068c9467c",
-      "text": "best event in the world!",
-      "complete": false,
+      "id": "12aa3e93-9e08-42cb-b8e2-2c97b2243694",
+      "text": "Buy Television",
+      "complete": true,
       "date": "Sun Jun 19 2022",
-      "dateCompleted": false
+      "dateCompleted": "Sun Jun 19 2022"
     }
   ]
 }
