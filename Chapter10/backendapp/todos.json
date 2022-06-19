@@ -1,0 +1,25 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "text": "Fetch Kid from Tuition",
+      "complete": false,
+      "date": "Mon Apr 11 2022",
+      "dateCompleted": false
+    },
+    {
+      "id": "2",
+      "text": "Buy Dinner",
+      "complete": false,
+      "date": "Mon Apr 11 2022",
+      "dateCompleted": false
+    },
+    {
+      "id": "984d2b15-2590-4a5e-9383-632068c9467c",
+      "text": "best event in the world!",
+      "complete": false,
+      "date": "Sun Jun 19 2022",
+      "dateCompleted": false
+    }
+  ]
+}
