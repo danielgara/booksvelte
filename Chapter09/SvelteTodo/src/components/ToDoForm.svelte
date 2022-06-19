@@ -2,12 +2,14 @@
 import {v4 as uuidv4} from 'uuid';
 import { TodoStore } from '../stores';
 import {Form, FormGroup, Input, Alert, Button} from 'sveltestrap';
+import axios from 'axios';
 
 let text = '';    
 let textErrorMessage = '';
 let validText = false;
+const endpoint = "http://localhost:3000/todos/";
 
-const handleSubmit = event => {
+const handleSubmit = async event => {
     event.preventDefault();
     handleInput();            
     if(validText){
@@ -18,6 +20,8 @@ const handleSubmit = event => {
             date: new Date().toDateString(),
             dateCompleted: false	                      
         };
+
+        const response = await axios.post(endpoint,newTodo);
                 
         TodoStore.update(currentTodos =>{
             return [newTodo, ...currentTodos]

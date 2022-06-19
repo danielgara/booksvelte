@@ -2,14 +2,16 @@
 import { TodoStore } from '../stores';
 import {Form, FormGroup, Input, Alert, Button} from 'sveltestrap';
 import { createEventDispatcher } from "svelte";
+import axios from 'axios';
 
 export let editTodo = null;
 let textErrorMessage = '';
 let validText = false;
+const endpoint = "http://localhost:3000/todos/";
 
 const dispatch = createEventDispatcher();
 
-const handleSubmit = event => {
+const handleSubmit = async event => {
     event.preventDefault();
     handleInput();
     if(validText){
@@ -17,6 +19,9 @@ const handleSubmit = event => {
             ...editTodo,                
             text: editTodo.text
         };
+
+        await axios.patch(endpoint+editedTodo.id,
+            {text:editedTodo.text});
 
         TodoStore.update(currentTodos => {
             const updatedToDoIndex = currentTodos.findIndex(

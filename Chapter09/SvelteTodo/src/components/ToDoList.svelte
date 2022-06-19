@@ -1,7 +1,20 @@
 <script>
 import {TodoStore} from '../stores';
 import { Table, Button } from 'sveltestrap';
-import {createEventDispatcher} from 'svelte';
+import {createEventDispatcher, onMount} from 'svelte';
+import axios from 'axios';
+
+const endpoint = "http://localhost:3000/todos/";
+
+onMount(async () => {
+  try {
+    const res = await axios.get(endpoint);
+    TodoStore.update(() => {
+      return res.data;
+    });
+  }
+  catch(e){}
+});
 
 const dispatch = createEventDispatcher();
 
@@ -9,7 +22,9 @@ const handleEdit = (todo) => {
     dispatch('edit-todo', todo)
 };
 
-const handleDelete = (todoId) => {
+const handleDelete = async (todoId) => {
+    await axios.delete(endpoint + todoId);
+    
     TodoStore.update(currentTodos => {
 	    return currentTodos.filter(todo => todo.id != todoId)    
     });
