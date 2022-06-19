@@ -3,6 +3,7 @@ import {TodoStore} from '../stores';
 import { Table, Button } from 'sveltestrap';
 import {createEventDispatcher, onMount} from 'svelte';
 import axios from 'axios';
+import { fade } from 'svelte/transition';
 
 const endpoint = "http://localhost:3000/todos/";
 
@@ -68,7 +69,7 @@ const toggleComplete = async (todo) => {
     <tbody> 
       {#each $TodoStore as todo (todo.id)}
         {#if !todo.complete}
-          <tr>
+          <tr transition:fade>
             <td>{todo.text}</td>
             <td>{todo.date}</td>
             <td>
